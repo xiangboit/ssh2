@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="action,do"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<action name="orderAction_*" class="com.ssh2.action.OrderAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/orderAction/list.jsp</result>
+			
+		</action>
+		
+		<action name="orderDetialAction_*" class="com.ssh2.action.OrderDetialAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/orderDetialAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/orderDetialAction/addUI.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/orderDetialAction/updateUI.jsp</result>
+			<result name="tolist" type="redirectAction">orderDetialAction_list?orderId=${orderId}</result>
+		</action>
+	
+	</package>
+
+</struts>

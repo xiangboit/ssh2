@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping package="com.ssh2.bean">
+		<class name="Orders" table="orders">
+			<id name="id" column="id">
+				<generator class="native"/>
+			</id>
+			
+			<property name="name" />
+			<property name="ordersDate" type="timestamp"/>
+			
+			<set name="product" table="products" lazy="false" >
+				<key column="productId" />
+				<one-to-many  class="Product" />
+			</set>
+			
+		</class>
+	</hibernate-mapping>
